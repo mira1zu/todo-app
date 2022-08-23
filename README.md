@@ -6,7 +6,7 @@ Technologies used:
 
 - **TypeScript**
 - **React** - UI library
-- **React router** - routing
+- **React Router** - routing
 - **Redux Toolkit** - state management
 - **Axios** - HTTP requests
 - **SCSS** - styling
@@ -32,3 +32,7 @@ Running locally:
 - `npm install`
 - `npm start`
 - open your browser at http://localhost:3000
+
+### Credits
+
+Inspired by [this](https://todomvc.com/examples/vanillajs/) layout
