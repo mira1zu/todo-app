@@ -2,6 +2,7 @@
   "name": "todo-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mira1zu.github.io/todo-app",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.4",
     "axios": "^0.27.2",
@@ -25,6 +26,8 @@
     "typescript": "^4.6.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
