@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-function App() {
+import { TodoPage } from './features/TodoPage';
+import { fetchTodos } from './features/TodoPage/todoPageSlice';
+import { useAppDispatch } from './app/hooks';
+
+export const App: React.FC = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Routes>
+      <Route path="/">
+        <Route
+          index
+          element={<TodoPage />}
+        />
 
-export default App;
+        <Route
+          path=":status"
+          element={<TodoPage />}
+        />
+      </Route>
+    </Routes>
+  );
+};
