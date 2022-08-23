@@ -14,13 +14,17 @@ Technologies used:
 
 Functionality:
 
-- Create todo
-- Edit name double-clicking on it.
-- Remove todo
-- Setting if the todo is completed
-- Make all todos completed
-- Remove all completed todos
-- Filter todos by state
+- Todos are loaded via API
+- Todo list functionality
+  - Add todo
+  - Remove todo
+  - Edit todo title on double-clicking
+  - Set completed state
+  - Set all todos completed state
+  - Remove all completed
+  - Filter todos by state
+- Loader that show up after 500ms
+- Error toast that shows up on loading error
 
 Running locally:
 
