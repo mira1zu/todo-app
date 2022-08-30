@@ -14,6 +14,16 @@ module.exports = {
     'react',
   ],
   rules: {
+    'import/prefer-default-export': 'off',
+    'arrow-body-style': ['error', 'as-needed'],
+    'no-param-reassign': [
+      'error', {
+        props: true,
+        ignorePropertyModificationsFor: [
+          'state',
+        ],
+      },
+    ],
     'react/function-component-definition': [
       2,
       {
@@ -21,5 +31,6 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
+    'react/prop-types': 0,
   },
 };
