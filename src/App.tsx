@@ -5,7 +5,7 @@ import { TodoPage } from './features/TodoPage';
 import { fetchTodos } from './features/TodoPage/todoPageSlice';
 import { useAppDispatch } from './app/hooks';
 
-export const App: React.FC = () => {
+const App: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -28,3 +28,5 @@ export const App: React.FC = () => {
     </Routes>
   );
 };
+
+export default App;

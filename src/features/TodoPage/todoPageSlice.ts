@@ -65,41 +65,40 @@ export const todoPageSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-    .addCase(fetchTodos.fulfilled, (state, action: PayloadAction<Todo[]>) => {
-      state.todos = action.payload;
-    })
-    .addCase(addTodo.fulfilled, (state, action: PayloadAction<Todo>) => {
-      console.log(state.todos);
-      state.todos.push(action.payload);
-    })
-    .addCase(updateTodo.fulfilled, (state, action: PayloadAction<Todo>) => {
-      const index = state.todos.findIndex(
-        todo => todo.id === action.payload.id,
-      );
+      .addCase(fetchTodos.fulfilled, (state, action: PayloadAction<Todo[]>) => {
+        state.todos = action.payload;
+      })
+      .addCase(addTodo.fulfilled, (state, action: PayloadAction<Todo>) => {
+        state.todos.push(action.payload);
+      })
+      .addCase(updateTodo.fulfilled, (state, action: PayloadAction<Todo>) => {
+        const index = state.todos.findIndex(
+          (todo) => todo.id === action.payload.id,
+        );
 
-      state.todos[index] = action.payload;
-    })
-    .addCase(removeTodo.fulfilled, (state, action: PayloadAction<number>) => {
-      state.todos = state.todos.filter(todo => todo.id !== action.payload);
-    })
-    .addMatcher(
-      isFulfilled(fetchTodos, addTodo, updateTodo, removeTodo),
-      (state) => {
-        state.status = LoadingStatus.Idle;
-      },
-    )
-    .addMatcher(
-      isPending(fetchTodos, addTodo, updateTodo, removeTodo),
-      (state) => {
-        state.status = LoadingStatus.Loading;
-      },
-    )
-    .addMatcher(
-      isRejected(fetchTodos, addTodo, updateTodo, removeTodo),
-      (state) => {
-        state.status = LoadingStatus.Failed;
-      },
-    );
+        state.todos[index] = action.payload;
+      })
+      .addCase(removeTodo.fulfilled, (state, action: PayloadAction<number>) => {
+        state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+      })
+      .addMatcher(
+        isFulfilled(fetchTodos, addTodo, updateTodo, removeTodo),
+        (state) => {
+          state.status = LoadingStatus.Idle;
+        },
+      )
+      .addMatcher(
+        isPending(fetchTodos, addTodo, updateTodo, removeTodo),
+        (state) => {
+          state.status = LoadingStatus.Loading;
+        },
+      )
+      .addMatcher(
+        isRejected(fetchTodos, addTodo, updateTodo, removeTodo),
+        (state) => {
+          state.status = LoadingStatus.Failed;
+        },
+      );
   },
 });
 

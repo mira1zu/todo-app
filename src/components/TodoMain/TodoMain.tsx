@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useMemo } from 'react';
 
 import './TodoMain.scss';
@@ -18,15 +19,13 @@ const TodoMain: React.FC = () => {
   const dispatch = useAppDispatch();
   const { todos } = useAppSelector(selectTodos);
 
-  const completedTodosAmount = useMemo(() => {
-    return todos.reduce((sum, curr) => (
-      curr.completed ? sum + 1 : sum
-    ), 0);
-  }, [todos]);
+  const completedTodosAmount = useMemo(() => todos.reduce((sum, curr) => (
+    curr.completed ? sum + 1 : sum
+  ), 0), [todos]);
   const isAllCompleted = completedTodosAmount === todos.length;
 
   const handleCompletedTodosSelector = () => {
-    todos.forEach(todo => {
+    todos.forEach((todo) => {
       if (todo.completed === !isAllCompleted) {
         return;
       }
@@ -41,11 +40,11 @@ const TodoMain: React.FC = () => {
   const prepareTodos = () => {
     switch (status) {
       case TodoStatus.Active: {
-        return todos.filter(todo => !todo.completed);
+        return todos.filter((todo) => !todo.completed);
       }
 
       case TodoStatus.Completed: {
-        return todos.filter(todo => todo.completed);
+        return todos.filter((todo) => todo.completed);
       }
 
       default:

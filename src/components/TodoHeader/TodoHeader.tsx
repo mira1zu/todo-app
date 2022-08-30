@@ -35,7 +35,7 @@ const TodoHeader: React.FC = () => {
     <header className="TodoHeader">
       <h1 className="TodoHeader-Title">todos</h1>
 
-      <form onSubmit={event => event.preventDefault()}>
+      <form onSubmit={(event) => event.preventDefault()}>
         <input
           type="text"
           data-cy="createTodo"
