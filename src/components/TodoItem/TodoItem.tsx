@@ -1,4 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import _ from 'lodash';
@@ -40,7 +42,7 @@ export const TodoItem: React.FC<Props> = React.memo(
     }, [localItem]);
 
     const applyChanges = (isCompleted = item.completed) => {
-      setLocalItem(prevState => (
+      setLocalItem((prevState) => (
         {
           ...prevState,
           title: newTitle,
@@ -52,12 +54,10 @@ export const TodoItem: React.FC<Props> = React.memo(
     };
 
     const handleCompletedCheckboxChange = () => {
-      setLocalItem(prevState => (
-        {
-          ...prevState,
-          completed: !item.completed,
-        }
-      ));
+      setLocalItem((prevState) => ({
+        ...prevState,
+        completed: !item.completed,
+      }));
     };
 
     const handleNewTitleInputChange = (
@@ -123,7 +123,7 @@ export const TodoItem: React.FC<Props> = React.memo(
             'TodoItem-Edit': true,
             'TodoItem-Edit_editing': isInEditMode,
           })}
-          ref={inputRef => inputRef?.focus()}
+          ref={(inputRef) => inputRef?.focus()}
           value={newTitle}
           onChange={handleNewTitleInputChange}
           onBlur={() => applyChanges()}

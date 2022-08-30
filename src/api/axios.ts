@@ -2,7 +2,10 @@ import axios from 'axios';
 
 export function sleep(ms: number): Promise<void> {
   console.log('Kindly remember to remove `sleep`');
-  return new Promise((resolve) => setTimeout(resolve, ms));
+
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 }
 
 export const USER_ID = 4009;

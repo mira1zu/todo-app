@@ -17,14 +17,12 @@ const TodoFooter: React.FC = () => {
   const dispatch = useAppDispatch();
   const { todos } = useAppSelector(selectTodos);
 
-  const completedTodosAmount = useMemo(() => {
-    return todos.reduce((sum, curr) => (
-      curr.completed ? sum + 1 : sum
-    ), 0);
-  }, [todos]);
+  const completedTodosAmount = useMemo(() => todos.reduce((sum, curr) => (
+    curr.completed ? sum + 1 : sum
+  ), 0), [todos]);
 
   const handleClearButton = () => {
-    todos.forEach(todo => {
+    todos.forEach((todo) => {
       if (!todo.completed) {
         return;
       }
