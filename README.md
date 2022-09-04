@@ -2,7 +2,7 @@
 
 [Preview](https://mira1zu.github.io/todo-app/)
 
-### Technologies used:
+## Technologies used:
 
 - **TypeScript**
 - **React** - UI library
@@ -12,7 +12,7 @@
 - **SCSS** - styling
 - **Lodash** - miscellaneous
 
-### Functionality:
+## Functionality:
 
 - Todos are loaded via API
 - Todo list functionality
@@ -26,13 +26,13 @@
 - Loader that show up after 500ms
 - Error toast that shows up on loading error
 
-### Running locally:
+## Running locally:
 
 - Clone this repo
 - `npm install`
 - `npm start`
-- open your browser at http://localhost:3000
+- open your browser at `http://localhost:3000`
 
-### Credits
+## Credits
 
 Inspired by [this](https://todomvc.com/examples/vanillajs/) layout
